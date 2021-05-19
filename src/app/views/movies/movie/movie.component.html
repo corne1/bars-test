@@ -1,9 +1,10 @@
 <div class="card" tabindex="0">
-  <div (click)="alertCall(movie?.movieName)" class="card-container">
+  <div (click)="alertCall($event, movie?.movieName)" class="card-container">
     <img class="card-poster" [src]="movie?.imageSrc">
     <div class="card-descr">
-      <span class="card-title" (click)="alertCall(movie?.descr)">{{ movie?.movieName }}</span>
+      <span class="card-title" (click)="alertCall($event, movie?.descr)">{{ movie?.movieName }}</span>
       <span> Режиссер: {{ movie?.director }}</span>
+      <div class="card-favourite" (click)="likePhoto(movie)" [ngStyle]="{'background': movie.likedByUser ? 'red' : 'transparent'}"></div>
       <div class="card-year">
         <span>{{ movie?.year }}</span>
         <div>Кинопоиск: <span class="card-rating">{{ movie?.rating }}</span></div>

@@ -1,0 +1,8 @@
+<div *ngIf="favouriteMovies.length !== 0; else moviesEmpty">
+    <app-movie *ngFor="let movie of favouriteMovies" [movie]='movie'></app-movie>
+</div>
+<ng-template #moviesEmpty>
+    <div>
+        <p>Заинтересованных фильмов нет!</p>
+    </div>
+</ng-template>

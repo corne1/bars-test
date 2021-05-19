@@ -40,6 +40,20 @@
     justify-content: space-between;
   }
 
+  &-favourite {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    &::before {
+        content: '\2661';
+        color: #ffffff;
+        font-size: 30px;
+    }
+  }
+
   &-year {
     display: flex;
     justify-content: space-between;

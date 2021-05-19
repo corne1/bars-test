@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from './movie.model';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Movie } from '../../types/movie.model';
 import { MoviesMainService } from './movies-main.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { MoviesMainService } from './movies-main.service';
 })
 export class MoviesMainComponent implements OnInit {
 
-  public movies: Movie[];
+  public movies: Movie[] | undefined;
+  search = '';
 
   constructor(
     private service: MoviesMainService

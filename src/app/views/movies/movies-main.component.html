@@ -1,0 +1,5 @@
+<div class="card-container">
+  <label for="search">Введите название фильма:</label>
+  <input id="search" type="text" [(ngModel)]='search' class="card-input">
+  <app-movie *ngFor="let movie of movies | filter:search" [movie]="movie"></app-movie>
+</div>
