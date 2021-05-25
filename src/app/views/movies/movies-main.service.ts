@@ -11,29 +11,33 @@ export class MoviesMainService {
   constructor() {}
 
   public getMovies(): Observable<Movie[]> {
-    const lsData= JSON.parse(localStorage.getItem('likeMovies')).map(Number);
-    for (let i = 0; i < lsData.length; i++) {
-      const id = lsData[i];
-      mockMovies.map((movie) => {
-        if (movie.id === id) {
-          movie.likedByUser = true;          
-        }
-      })
+    const lsData= JSON.parse(localStorage.getItem('likeMovies'))?.map(Number);
+    if (lsData) {
+      for (let i = 0; i < lsData.length; i++) {
+        const id = lsData[i];
+        mockMovies?.map((movie) => {
+          if (movie.id === id) {
+            movie.likedByUser = true;          
+          }
+        })
+      }
     }
     return of(mockMovies.sort((a, b) => a.rating - b.rating));
   }
 
   getFavouriteMovies(): Observable<Movie[]> {
-    const lsData= JSON.parse(localStorage.getItem('likeMovies')).map(Number);
+    const lsData= JSON.parse(localStorage.getItem('likeMovies'))?.map(Number);
     const returnData = []
-    for (let i = 0; i < lsData.length; i++) {
-      const id = lsData[i];
-      mockMovies.map((movie) => {
-        if (movie.id === id) {
-          movie.likedByUser = true;          
-        }
-      })
-      returnData.push(mockMovies.find((movie: Movie) => movie.id === id));
+    if (lsData) {
+      for (let i = 0; i < lsData.length; i++) {
+        const id = lsData[i];
+        mockMovies?.map((movie) => {
+          if (movie.id === id) {
+            movie.likedByUser = true;          
+          }
+        })
+        returnData.push(mockMovies.find((movie: Movie) => movie.id === id));
+      }
     }
     return of(returnData);
   }

@@ -17,7 +17,8 @@ export class MovieComponent {
     alert(descr);
   }
 
-  likePhoto(movie: Movie): void {
+  likePhoto($event: Event, movie: Movie): void {
+    $event.stopPropagation();
     let lsArray: string[] = JSON.parse(localStorage.getItem('likeMovies'));
     if (!lsArray) {
       lsArray = [];

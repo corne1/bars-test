@@ -4,7 +4,7 @@
     <div class="card-descr">
       <span class="card-title" (click)="alertCall($event, movie?.descr)">{{ movie?.movieName }}</span>
       <span> Режиссер: {{ movie?.director }}</span>
-      <div class="card-favourite" (click)="likePhoto(movie)" [ngStyle]="{'background': movie.likedByUser ? 'red' : 'transparent'}"></div>
+      <div class="card-favourite" (click)="likePhoto($event, movie)" [ngStyle]="{'background': movie.likedByUser ? 'red' : 'transparent'}"></div>
       <div class="card-year">
         <span>{{ movie?.year }}</span>
         <div>Кинопоиск: <span class="card-rating">{{ movie?.rating }}</span></div>
